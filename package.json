@@ -1,0 +1,11 @@
+{
+  "name": "redux-api-actions",
+  "version": "0.0.1",
+  "description": "Wrapper around superagent for redux async actions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jeremy Dagorn",
+  "license": "ISC"
+}
