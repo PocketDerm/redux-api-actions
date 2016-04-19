@@ -4,11 +4,12 @@
   "description": "Wrapper around superagent for redux async actions",
   "main": "dist/index.js",
   "scripts": {
-    "compile": "node_modules/babel-cli/bin/babel.js src --out-dir dist"
+    "compile": "./node_modules/babel-cli/bin/babel.js src --out-dir dist"
   },
   "babel": {
     "presets": ["es2015"]
   },
+  "private": true,
   "author": "Jeremy Dagorn",
   "license": "ISC",
   "dependencies": {
