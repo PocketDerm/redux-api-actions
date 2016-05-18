@@ -1,5 +1,5 @@
 import request from 'superagent';
-import Promise from 'promise';
+import Promise from 'bluebird';
 
 export const ASYNC_CALL_STARTED = 'ASYNC_CALL_STARTED';
 
