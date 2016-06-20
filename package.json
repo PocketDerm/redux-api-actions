@@ -10,7 +10,8 @@
   },
   "babel": {
     "presets": [
-      "es2015"
+      "es2015",
+      "react"
     ]
   },
   "dependencies": {
@@ -18,6 +19,7 @@
     "superagent": "^1.8.3"
   },
   "devDependencies": {
+    "babel-preset-react": "^6.5.0",
     "babel-cli": "^6.8.0",
     "babel-core": "^6.8.0",
     "babel-preset-es2015": "^6.6.0",
