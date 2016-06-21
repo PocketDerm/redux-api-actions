@@ -9,10 +9,14 @@ export function asyncStarted() {
   };
 }
 
-export function asyncRequest(url, data = {}, headers = {}) {
+export function asyncRequest(url, data = {}, headers = {}, withCredentials = false) {
   return new Promise((resolve, reject) => {
-    request.get(url)
-      .query(data)
+    let _request = request.get(url);
+    if (withCredentials) {
+      _request = _request.withCredentials();
+    }
+
+    _request.query(data)
       .set(headers)
       .end((err, res) => {
         if (err) {
