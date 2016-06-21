@@ -59,7 +59,7 @@ export function putRequest(url, data, headers = {}) {
 
 export function deleteRequest(url, headers = {}) {
   return new Promise((resolve, reject) => {
-    request.del(url).send(data)
+    request.del(url)
     .set(headers)
     .end((err, res) => {
       if (err) {
