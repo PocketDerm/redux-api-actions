@@ -16,6 +16,7 @@ export function asyncRequest(url, data = {}, headers = {}, withCredentials = fal
       _request = _request.withCredentials();
     }
 
+    headers = Object.assign({}, headers, { 'X-Requested-With: XMLHttpRequest' });
     _request.query(data)
       .set(headers)
       .end((err, res) => {
@@ -30,6 +31,7 @@ export function asyncRequest(url, data = {}, headers = {}, withCredentials = fal
 }
 
 export function postRequest(url, data, headers = {}) {
+  headers = Object.assign({}, headers, { 'X-Requested-With': 'XMLHttpRequest' });
   return new Promise((resolve, reject) => {
     request.post(url).send(data)
     .set(headers)
@@ -44,6 +46,7 @@ export function postRequest(url, data, headers = {}) {
 }
 
 export function putRequest(url, data, headers = {}) {
+  headers = Object.assign({}, headers, { 'X-Requested-With': 'XMLHttpRequest' });
   return new Promise((resolve, reject) => {
     request.put(url).send(data)
     .set(headers)
@@ -58,6 +61,7 @@ export function putRequest(url, data, headers = {}) {
 }
 
 export function deleteRequest(url, headers = {}) {
+  headers = Object.assign({}, headers, { 'X-Requested-With': 'XMLHttpRequest' });
   return new Promise((resolve, reject) => {
     request.del(url)
     .set(headers)
