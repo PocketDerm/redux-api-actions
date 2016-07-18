@@ -16,7 +16,7 @@ export function asyncRequest(url, data = {}, headers = {}, withCredentials = fal
       _request = _request.withCredentials();
     }
 
-    headers = Object.assign({}, headers, { 'X-Requested-With: XMLHttpRequest' });
+    headers = Object.assign({}, headers, { 'X-Requested-With': 'XMLHttpRequest' });
     _request.query(data)
       .set(headers)
       .end((err, res) => {
