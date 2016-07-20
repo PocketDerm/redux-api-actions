@@ -9,10 +9,15 @@ export function asyncStarted() {
   };
 }
 
-export function asyncRequest(url, data = {}, headers = {}) {
+export function asyncRequest(url, data = {}, headers = {}, withCredentials = false) {
   return new Promise((resolve, reject) => {
-    request.get(url)
-      .query(data)
+    let _request = request.get(url);
+    if (withCredentials) {
+      _request = _request.withCredentials();
+    }
+
+    headers = Object.assign({}, headers, { 'X-Requested-With': 'XMLHttpRequest' });
+    _request.query(data)
       .set(headers)
       .end((err, res) => {
         if (err) {
@@ -26,6 +31,7 @@ export function asyncRequest(url, data = {}, headers = {}) {
 }
 
 export function postRequest(url, data, headers = {}) {
+  headers = Object.assign({}, headers, { 'X-Requested-With': 'XMLHttpRequest' });
   return new Promise((resolve, reject) => {
     request.post(url).send(data)
     .set(headers)
@@ -40,6 +46,7 @@ export function postRequest(url, data, headers = {}) {
 }
 
 export function putRequest(url, data, headers = {}) {
+  headers = Object.assign({}, headers, { 'X-Requested-With': 'XMLHttpRequest' });
   return new Promise((resolve, reject) => {
     request.put(url).send(data)
     .set(headers)
@@ -54,8 +61,9 @@ export function putRequest(url, data, headers = {}) {
 }
 
 export function deleteRequest(url, headers = {}) {
+  headers = Object.assign({}, headers, { 'X-Requested-With': 'XMLHttpRequest' });
   return new Promise((resolve, reject) => {
-    request.del(url).send(data)
+    request.del(url)
     .set(headers)
     .end((err, res) => {
       if (err) {
