@@ -3599,9 +3599,7 @@ module.exports = isObject;
 "use strict";
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.ASYNC_CALL_STARTED = undefined;
 exports.asyncStarted = asyncStarted;
 exports.asyncRequest = asyncRequest;
