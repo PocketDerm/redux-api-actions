@@ -3,6 +3,7 @@
   "version": "0.0.5",
   "description": "Wrapper around superagent for redux async actions",
   "main": "dist/bundle.js",
+  "module": "src/index.js",
   "browserify": {
     "transform": [
       "babelify"
