@@ -4,6 +4,8 @@ module.exports = {
   entry: './src/index.js',
   output: { path: __dirname, filename: 'dist/bundle.js' },
   devtool: "cheap-module-source-map",
+  library: "redux-api-actions",
+  libraryTarget: "umd",
   module: {
     loaders: [
       {
