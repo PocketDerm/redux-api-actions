@@ -5,7 +5,7 @@ module.exports = {
   output: {
     path: __dirname,
     filename: 'dist/bundle.js',
-    library: "redux-api-actions",
+    library: "ReduxApiActions",
     libraryTarget: "umd",
   },
   module: {
@@ -15,7 +15,8 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: ['es2015']
+            presets: ["es2015", "stage-1", "react"],
+            plugins: ["add-module-exports"]
         }
       }
     ]
