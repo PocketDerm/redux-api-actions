@@ -14,7 +14,7 @@ module.exports = {
         exclude: /node_modules/,
         query: {
             presets: ["es2015"],
-            plugins: ["add-module-exports"]
+            plugins: ["add-module-exports", "transform-es2015-modules-umd"]
         }
       }
     ]
