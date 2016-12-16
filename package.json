@@ -2,7 +2,7 @@
   "name": "redux-api-actions",
   "version": "0.0.5",
   "description": "Wrapper around superagent for redux async actions",
-  "main": "dist/bundle.js",
+  "main": "dist/redux-api-actions.js",
   "module": "src/index.js",
   "browserify": {
     "transform": [

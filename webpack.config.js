@@ -3,7 +3,7 @@ module.exports = {
   devtool: "source-map",
   output: {
     path: __dirname,
-    filename: 'dist/bundle.js',
+    filename: 'dist/redux-api-actions.js',
     library: 'redux-api-actions',
     libraryTarget: 'umd',
     umdNamedDefine: true
