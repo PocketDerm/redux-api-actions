@@ -9,6 +9,10 @@
       "babelify"
     ]
   },
+  "babel": {
+    "presets": ["es2015", "stage-1", "react"],
+    "plugins": ["add-module-exports"]
+  },
   "dependencies": {
     "bluebird": "^3.4.0",
     "superagent": "^1.8.3"

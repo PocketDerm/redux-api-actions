@@ -7,6 +7,7 @@ module.exports = {
     filename: 'dist/bundle.js',
     library: "ReduxApiActions",
     libraryTarget: "umd",
+    umdNamedDefine: true
   },
   module: {
     loaders: [
