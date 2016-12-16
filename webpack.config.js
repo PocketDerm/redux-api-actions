@@ -9,7 +9,11 @@ module.exports = {
     umdNamedDefine: true
   },
   module: {
-    loaders: [
+    rules: [
+      {
+        test: /\.jsx$|\.js$/,
+        loader: 'source-map-loader'
+      },
       {
         test:  /\.jsx$|\.js$/,
         loader: 'babel-loader',
