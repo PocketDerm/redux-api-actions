@@ -12,7 +12,8 @@
   "babel": {
     "presets": [
       ["es2015", { "modules": "umd" }]
-    ]
+    ],
+    "plugins": ["add-module-exports"]
   },
   "dependencies": {
     "bluebird": "^3.4.0",
