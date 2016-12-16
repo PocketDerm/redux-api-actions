@@ -1,3 +1,4 @@
+require("babel-polyfill");
 import request from 'superagent';
 import Promise from 'bluebird';
 
