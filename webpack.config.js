@@ -1,6 +1,5 @@
 module.exports = {
   entry: ['./src/index.js'],
-  devtool: "source-map",
   output: {
     path: __dirname,
     filename: 'dist/redux-api-actions.js',
@@ -10,10 +9,6 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.jsx$|\.js$/,
-        loader: 'source-map-loader'
-      },
       {
         test:  /\.jsx$|\.js$/,
         loader: 'babel-loader',
