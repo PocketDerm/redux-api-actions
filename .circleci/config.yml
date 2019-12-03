@@ -1,0 +1,59 @@
+version: 2.1
+
+aliases:
+  - &root ~/redux-api-actions
+
+  - &defaults
+    working_directory: *root
+
+  - &cache-npm-key-base npm-packages-v1-{{ arch }}-
+  - &cache-npm-key npm-packages-v1-{{ arch }}-{{ checksum "package-lock.lock" }}
+
+  - &npm-cache-restore
+    restore_cache:
+      keys:
+        - *cache-npm-key
+        - *cache-npm-key-base
+
+  - &npm-cache-save
+    save_cache:
+      key: *cache-npm-key
+      paths:
+        - ~/.cache/npm
+
+  # Prospective merging against master.
+  - &prospective-merge
+    run:
+      name: Prospective Merge
+      command: |
+        if [[ ! -z "${CIRCLE_PULL_REQUEST}" ]]; then
+            git pull --ff-only origin "refs/pull/${CIRCLE_PULL_REQUEST//*pull\//}/merge"
+        fi
+
+jobs:
+  build:
+    <<: *defaults
+
+    docker:
+      - image: circleci/node:10-stretch
+
+    steps:
+      - checkout
+      - <<: *prospective-merge
+      - <<: *npm-cache-restore
+      - run:
+          name: Install
+          command: |
+            npm install
+      - <<: *npm-cache-save
+      - persist_to_workspace:
+          root: *root
+          paths:
+            - node_modules
+
+workflows:
+  version: 2
+
+  build:
+    jobs:
+      - build
